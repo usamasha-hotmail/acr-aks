@@ -1,4 +1,4 @@
-
+name: Build and Deploy Container App
 on:
   workflow_dispatch:
 
@@ -9,7 +9,13 @@ jobs:
       run:
         shell: bash
     steps:
-    - uses: actions/checkout@v4.1.5
+    - uses: actions/checkout@v4.1.5    
+    - uses: azure/docker-login@v2
+      with:
+        login-server: test.azurecr.io
+        
+    
+    
     
 
           
