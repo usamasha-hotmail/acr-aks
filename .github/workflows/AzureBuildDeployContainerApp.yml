@@ -13,11 +13,14 @@ jobs:
     - uses: azure/docker-login@v2
       with:
         login-server: usamacontainer01.azurecr.io
-        username: secrets.
-        password: secrets.
-     - run:  |
-         docker build . -t  usamacontainer01.azurecr.io/web-game:tag 2048-game
-         docker push usamacontainer01.azurecr.io/web-game:tag
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - name: build Docker container reg
+      run: |
+        docker build . -t usamacontainer01.azurecr.io/web-game:tag 2048-game
+        docker push usamacontainer01.azurecr.io/web-game:tag
+
+    
         
     
     
