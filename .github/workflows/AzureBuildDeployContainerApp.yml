@@ -17,8 +17,8 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: build Docker container reg
       run: |
-        docker build . -t usamacontainer01.azurecr.io/web-game:tag 2048-game
-        docker push usamacontainer01.azurecr.io/web-game:tag
+        docker build . -t usamacontainer01.azurecr.io/web-game:${{ github.sha }}
+        docker push usamacontainer01.azurecr.io/web-game:${{ github.sha }}
 
     
         
