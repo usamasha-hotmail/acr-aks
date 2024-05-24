@@ -12,7 +12,12 @@ jobs:
     - uses: actions/checkout@v4.1.5    
     - uses: azure/docker-login@v2
       with:
-        login-server: test.azurecr.io
+        login-server: usamacontainer01.azurecr.io
+        username: secrets.
+        password: secrets.
+     - run:  |
+         docker build . -t  usamacontainer01.azurecr.io/web-game:tag 2048-game
+         docker push usamacontainer01.azurecr.io/web-game:tag
         
     
     
