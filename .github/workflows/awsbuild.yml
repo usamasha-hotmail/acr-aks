@@ -28,6 +28,10 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     needs: Build
+    environment:
+      name: DEV
+      url: 'for Developers'
+
     steps:
     - run: echo deployment started
     - uses: actions/download-artifact@v3
