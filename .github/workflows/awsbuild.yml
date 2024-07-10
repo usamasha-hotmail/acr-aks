@@ -17,5 +17,15 @@ jobs:
     - run: npm install -g yarn
     - name: install npm yarn
       run: yarn install --frozen-lockfile
+    
+    - name: "Configure AWS Credentials" Action for GitHub Actions
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-2
+        # AWS Access Key ID. Provide this key if you want to assume a role using access keys rather than a web identity token.
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS Secret Access Key. Required if aws-access-key-id is provided.
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
+          
 
