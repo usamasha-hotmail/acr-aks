@@ -3,7 +3,7 @@ name: AWS build and Deploy
 on: [workflow_dispatch]
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,6 @@ jobs:
     needs: build
     steps:
     - run: echo deployment started
-      #  - run: aws s3 sync ./2048-game/ s3://usa-static-website-nextjs  
     - uses: actions/download-artifact@v3
       with:
         name: artnamemyapp
@@ -43,3 +42,4 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         # AWS Secret Access Key. Required if aws-access-key-id is provided.
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - run: aws s3 sync ./acr-aks/ s3://usa-static-website-nextjs  
