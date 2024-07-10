@@ -18,11 +18,11 @@ jobs:
     - name: install npm yarn
       run: yarn install --frozen-lockfile
     
-    - uses: actions\upload-Artifact@v2.2.0
+    - uses: actions\upload-Artifact@v3
       with:
         name: artnamemyapp
-        path: /**
-        if-no-files-found: error
+        path: ./2048-game/index.html
+        if-no-files-found: warn
         retention-days: 10
 
     - name: "Configure AWS Credentials" 
