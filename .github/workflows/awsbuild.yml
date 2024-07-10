@@ -25,12 +25,12 @@ jobs:
         if-no-files-found: warn
         retention-days: 10
 
-  Deploy:
+  DEV-Deploy:
     runs-on: ubuntu-latest
     needs: Build
     environment:
       name: DEV
-      url: 'for Developers'
+      url: 'www.gmail.com'
 
     steps:
     - run: echo deployment started
@@ -47,3 +47,26 @@ jobs:
         # AWS Secret Access Key. Required if aws-access-key-id is provided.
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - run: aws s3 sync ./ s3://usa-static-website-nextjs  
+
+  Prod-Deploy:
+      runs-on: ubuntu-latest
+      needs: Build
+      environment:
+        name: Prod
+        url: 'www.yahoo.com'
+  
+      steps:
+      - run: echo deployment started
+      - uses: actions/download-artifact@v3
+        with:
+          name: artnamemyapp
+      - run: ls -R
+      - name: "Configure AWS Credentials" 
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-2
+         # AWS Access Key ID. Provide this key if you want to assume a role using access keys rather than a web identity token.
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # AWS Secret Access Key. Required if aws-access-key-id is provided.
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - run: aws s3 sync ./ s3://usa-static-website-nextjs  
