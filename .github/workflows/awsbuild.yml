@@ -18,7 +18,7 @@ jobs:
     - name: install npm yarn
       run: yarn install --frozen-lockfile
     
-    - uses: actions\upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
         name: artnamemyapp
         path: usamasha-hotmail/acr-aks
