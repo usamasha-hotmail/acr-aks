@@ -11,8 +11,8 @@ jobs:
     - name: Checkout file completed
       run: echo "files are out but we need only htmt files"
     - uses: NuGet/setup-nuget@v2.0.0
-    - uses: actions/setup-node@
+    - uses: actions/setup-node@v1
       with:
-        node-version:12
+        node-version: 12
     
 
