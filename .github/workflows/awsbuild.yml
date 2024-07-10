@@ -21,7 +21,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: artnamemyapp
-        path: usamasha-hotmail/acr-aks
+        path: ./2048-game/
         if-no-files-found: warn
         retention-days: 10
 
