@@ -21,7 +21,7 @@ jobs:
     - uses: actions\upload-Artifact@v2.2.0
       with:
         name: artnamemyapp
-        path: ./2048-game/
+        path: 2048-game/**
         if-no-files-found: error
         retention-days: 10
 
