@@ -31,7 +31,7 @@ jobs:
         path: ./2048-game/
         if-no-files-found: warn
         retention-days: 10
-
+    - run: echo deployment started ${{inputs.env}}
   DEV-Deploy:
     runs-on: ubuntu-latest
     needs: Build
