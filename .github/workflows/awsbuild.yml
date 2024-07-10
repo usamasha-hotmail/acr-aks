@@ -21,7 +21,7 @@ jobs:
     - uses: actions\upload-Artifact@v3
       with:
         name: artnamemyapp
-        path: 2048-game/index.html
+        path: 2048-game/js/bind_polyfill.js
         if-no-files-found: warn
         retention-days: 10
 
