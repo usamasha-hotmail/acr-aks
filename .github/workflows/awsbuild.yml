@@ -11,7 +11,7 @@ jobs:
     - name: Checkout file completed
       run: echo "files are out but we need only htmt files"
     - uses: NuGet/setup-nuget@v2
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: 16
     - run: npm install -g yarn
