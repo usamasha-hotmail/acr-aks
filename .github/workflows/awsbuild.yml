@@ -8,4 +8,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4.1.5
+    - name: Checkout file completed
+      run: echo "files are out but we need only htmt files"
 
