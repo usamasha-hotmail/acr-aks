@@ -1,6 +1,13 @@
 name: AWS build and Deploy
 
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+      inputs:
+        env:
+          description: "select your option"
+          default: "DEV"
+          type: "string"
+          
 
 jobs:
   Build:
