@@ -6,8 +6,10 @@ on:
         env:
           description: "select your option"
           default: "DEV"
-          type: "string"
-          
+          type: choice
+          options:
+            - DEV
+            - DEV to Production
 
 jobs:
   Build:
