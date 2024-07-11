@@ -1,0 +1,11 @@
+name: testing composite action
+on:
+  workflow_dispatch:
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet someone
+        uses: ./.github/actions/greet
+        with:
+          who-to-greet: "Alice"
