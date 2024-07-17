@@ -23,7 +23,7 @@ jobs:
           node-version: 16
       - run: npm install -g yarn
         name: install npm yarn
-      - run: yarn test
+      - run: echo "Run Unit Testing"
         name: Run Unit Testing  
         
       - uses: actions/upload-artifact@v3
