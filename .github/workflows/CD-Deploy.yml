@@ -1,0 +1,17 @@
+name: create and publish
+on: 
+  workflow_call:
+    inputs:
+      image_name:
+        required: true
+        type: string
+      tag:
+        type: string
+
+jobs:
+  Deployment:
+     runs-on: ubuntu-latest
+
+     steps:
+      - name: ${{ inputs.tag }} Package execution
+        run: echo ${{ inputs.image_name }} and ${{ inputs.tag }}

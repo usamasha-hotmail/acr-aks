@@ -29,4 +29,11 @@ jobs:
             path: ./2048-game/
             if-no-files-found: warn
             retention-days: 10
-      
+
+  SandBox-Env:
+    needs: Build-Package
+    if:  ${{ inputs.Env-flow == 'SandBox' }} 
+    uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
+    with:
+      image_name: "usamaimage"
+      tag: "SandBox"
