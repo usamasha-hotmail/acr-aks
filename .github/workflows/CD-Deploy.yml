@@ -2,7 +2,7 @@ name: AWS Web Deployment
 on: 
   workflow_call:
     inputs:
-      env:
+      env-flow:
         required: true
         type: string
       tag:
@@ -19,7 +19,7 @@ jobs:
 
      steps:
       - name: ${{ inputs.tag }} Package execution
-        run: echo ${{ inputs.env }} and ${{ inputs.tag }}
+        run: echo ${{ inputs.env-flow }} and ${{ inputs.tag }}
       - run: echo deployment started
       - uses: actions/download-artifact@v3
         with:
