@@ -7,6 +7,11 @@ on:
         type: string
       tag:
         type: string
+    secrets:
+        aws-access-key-id:
+          required: true
+        aws-secret-access-key:
+          required: true      
 
 jobs:
   Deployment:
