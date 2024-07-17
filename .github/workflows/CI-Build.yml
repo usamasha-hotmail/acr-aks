@@ -32,6 +32,7 @@ jobs:
 
   SandBox-Env:
     needs: Build-Package
+    if:  ${{ inputs.Env-flow == 'SandBox' }} 
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
         env-flow: ${{ inputs.Env-flow }}
@@ -42,6 +43,7 @@ jobs:
 
   DEV-Env:
     needs: Build-Package
+    if:  ${{ inputs.Env-flow != 'SandBox' }}
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
         env-flow: DEV
@@ -52,6 +54,7 @@ jobs:
 
   Staging-Env:
     needs: DEV-Env
+    if:  ${{ inputs.Env-flow != 'SandBox' }}
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
         env-flow: Stage
@@ -59,4 +62,14 @@ jobs:
     secrets:
         aws-access-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            
+
+  Prod-Env:
+    needs: Stage-Env
+    if:  ${{ inputs.Env-flow != 'SandBox' }}
+    uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
+    with:
+        env-flow: Prod
+        tag: " "
+    secrets:
+        aws-access-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}        
