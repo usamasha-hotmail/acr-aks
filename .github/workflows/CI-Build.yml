@@ -1,10 +1,12 @@
 name: AWS Web build
 
 on: 
+    pull_request:
+      branches: [ "main"]
     workflow_dispatch:
       inputs:
         Env-flow:
-            description: "Select your env. workflow?"
+            description: "Select your deployment workflow?"
             default: SandBox
             type: choice
             options: 
