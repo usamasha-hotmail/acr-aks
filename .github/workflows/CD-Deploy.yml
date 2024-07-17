@@ -1,4 +1,4 @@
-name: AWS Env Flow Deployment
+name: AWS Web Deployment
 on: 
   workflow_call:
     inputs:
