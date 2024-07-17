@@ -16,10 +16,9 @@ on:
 jobs:
   Deployment:
      runs-on: ubuntu-latest
-
+     environment:
+      name: ${{inputs.env-flow}}
      steps:
-      - name: ${{ inputs.tag }} Package execution
-        run: echo ${{ inputs.env-flow }} and ${{ inputs.tag }}
       - run: echo deployment started
       - uses: actions/download-artifact@v3
         with:
