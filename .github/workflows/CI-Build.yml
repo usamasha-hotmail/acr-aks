@@ -64,7 +64,7 @@ jobs:
         aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   Prod-Env:
-    needs: Stage-Env
+    needs: Staging-Env
     if:  ${{ inputs.Env-flow != 'SandBox' }}
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
