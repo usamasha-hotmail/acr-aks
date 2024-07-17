@@ -16,12 +16,16 @@ jobs:
     steps:
         - uses: actions/checkout@v4.1.5
         - uses: NuGet/setup-nuget@v2
+          name: Setup Nuget Package
         - uses: actions/setup-node@v2
           with:
             node-version: 16
+        - run: npm install -g yarn
+          name: install npm yarn
+        
         - uses: actions/upload-artifact@v3
           with:
-            name: artnamemyapp
+            name: WebGameApp4s3
             path: ./2048-game/
             if-no-files-found: warn
             retention-days: 10
