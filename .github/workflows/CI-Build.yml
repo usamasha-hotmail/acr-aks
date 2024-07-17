@@ -14,30 +14,29 @@ jobs:
   Build-Package:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v4.1.5
-        - uses: NuGet/setup-nuget@v2
-          name: Setup Nuget Package
-        - uses: actions/setup-node@v4
-          with:
-            node-version: 16
-        - run: npm install -g yarn
-          name: install npm yarn
+      - uses: actions/checkout@v4.1.5
+      - uses: NuGet/setup-nuget@v2
+        name: Setup Nuget Package
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+      - run: npm install -g yarn
+        name: install npm yarn
         
-        - uses: actions/upload-artifact@v3
-          with:
-            name: WebGameApp4s3
-            path: ./2048-game/
-            if-no-files-found: warn
-            retention-days: 10
+      - uses: actions/upload-artifact@v3
+        with:
+          name: WebGameApp4s3
+          path: ./2048-game/
+          if-no-files-found: warn
+          retention-days: 10
 
   SandBox-Env:
     needs: Build-Package
-    if:  ${{ inputs.Env-flow == 'SandBox' }} 
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
-      image_name: "usamaimage"
-      tag: "SandBox"
+        env: "SandBox"
+        tag: "SandBox"
     secrets:
-      aws-access-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 

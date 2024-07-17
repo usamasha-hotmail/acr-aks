@@ -2,7 +2,7 @@ name: AWS Web Deployment
 on: 
   workflow_call:
     inputs:
-      image_name:
+      env:
         required: true
         type: string
       tag:
