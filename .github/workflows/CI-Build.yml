@@ -1,0 +1,28 @@
+name: AWS Web build
+
+on: 
+    workflow_dispatch:
+      inputs:
+        Env-flow:
+            description: "Select your env. workflow?"
+            default: SandBox
+            type: choice
+            options: 
+              - SandBox
+              - Dev to Production
+jobs:
+  Build-Package:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4.1.5
+        - uses: NuGet/setup-nuget@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: 16
+        - uses: actions/upload-artifact@v3
+          with:
+            name: artnamemyapp
+            path: ./2048-game/
+            if-no-files-found: warn
+            retention-days: 10
+      
