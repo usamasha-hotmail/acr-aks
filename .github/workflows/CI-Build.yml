@@ -34,7 +34,7 @@ jobs:
     needs: Build-Package
     uses: usamasha-hotmail/ACR-AKS/.github/workflows/CD-Deploy.yml@main
     with:
-        env: "SandBox"
+        env: ${{ inputs.Env-flow }}
         tag: "SandBox"
     secrets:
         aws-access-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

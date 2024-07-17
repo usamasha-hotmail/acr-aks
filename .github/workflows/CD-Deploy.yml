@@ -19,7 +19,7 @@ jobs:
 
      steps:
       - name: ${{ inputs.tag }} Package execution
-        run: echo ${{ inputs.image_name }} and ${{ inputs.tag }}
+        run: echo ${{ inputs.env }} and ${{ inputs.tag }}
       - run: echo deployment started
       - uses: actions/download-artifact@v3
         with:
