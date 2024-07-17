@@ -8,9 +8,9 @@ on:
       tag:
         type: string
     secrets:
-        aws-access-key-id:
+        aws-access-id:
           required: true
-        aws-secret-access-key:
+        aws-secret-key:
           required: true      
 
 jobs:
