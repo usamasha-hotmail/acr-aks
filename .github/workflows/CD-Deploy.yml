@@ -1,4 +1,4 @@
-name: create and publish
+name: AWS Env Flow Deployment
 on: 
   workflow_call:
     inputs:
